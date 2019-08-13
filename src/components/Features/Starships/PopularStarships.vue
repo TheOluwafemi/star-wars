@@ -1,0 +1,116 @@
+<template>
+  <div class="container popular-starships">
+    <h2 class="heading">Popular Starships</h2>
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"  v-for="ship in selectedStarship" :key="ship.name">
+        <div class="uk-card uk-card-default">
+          <div class="uk-card-media-top">
+              <img src="../../../assets/starship-1.jpg" alt="ship image">
+          </div>
+          <div class="uk-card-body">
+            <a class="header">{{ship.name}}</a>
+            <div class="description">
+              <p>Model: {{ship.model}}</p>
+              <p>Capacity: {{ship.cargo_capacity}}</p>
+            </div>
+          </div>
+          <div class="uk-card-footer">
+            <a class="float-right">
+              READ MORE
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="text-center m-3">
+      <router-link to="/all-starships">
+        <button class="ui button">View More</button>
+      </router-link>
+     
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: 'PopularStarships',
+
+    props: {
+      starships: Array,
+    },
+
+    data() {
+      return {
+        pics: ['starship-1', 'starship-2', 'starship-3', 'starship-4', 'starship-5', 'starship-6'],
+        limit: 5,
+      }
+    },
+
+    methods: {
+      getPic(index) {
+        return './images/' + this.pics[index] + '.jpg';
+      },
+
+      getImagePath() {
+        let i;
+        pics: ['starship-1', 'starship-2', 'starship-3', 'starship-4', 'starship-5', 'starship-6'];
+        for (i = 0; i < pics.length; i++) {
+          return './images/' + pics[i] + '.jpg';
+        }
+      }
+    },
+
+    computed: {
+      selectedStarship() {
+        return this.starships.slice(0, 6);
+      }
+    },
+
+    mounted() {
+    }
+
+
+  }
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+  .popular-starships {
+    margin-top: 2em;
+    padding: 10px;
+  }
+.heading {
+  text-align: center;
+  position: relative;
+  margin-top: 1.5em;
+  margin-bottom: 2em;
+}
+.heading::after {
+  content: '';
+  height: 5px;
+  width: 10%;
+  background: #5b5150;
+  position: absolute;
+  left: calc(55% - 10%);
+  bottom: -12px;
+}
+  h3 {
+    margin: 40px 0 0;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  a {
+    color: #42b983;
+  }
+
+  div .uk-card {
+    margin-bottom: 2em !important;
+  }
+</style>
