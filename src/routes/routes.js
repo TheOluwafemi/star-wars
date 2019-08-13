@@ -4,7 +4,7 @@ import AllCharacters from '../components/Features/Characters/AllCharacters'
 import AllPlanets from '../components/Features/Planets/AllPlanets'
 
 export default [
-  // Redirects to /route-one as the default route.
+
   { path: '/', redirect: '/Homepage' },
   { path: '/Homepage', component: Homepage },
   { path: '/all-starships', component: AllStarships },
