@@ -1,7 +1,8 @@
 <template>
   <div>
     <Header @search:webpage="searchWebpage" />
-    <div class="container all-starships">
+
+    <div class="container all-starships" v-if="!loading">
       <h2 class="heading">All Characters</h2>
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"  v-for="(character, index) in displayedCharacters" :key="index">
@@ -10,16 +11,48 @@
               <img src="../../../assets/character-3.jpg" alt="ship image">
             </div>
             <div class="uk-card-body">
+            <router-link 
+              :to="{ name: 'character', 
+              params: { 
+                name: character.name, 
+                characterDetails: {
+                  name: character.name,
+                  mass: character.mass,
+                  gender: character.gender,
+                  hair_color: character.hair_color,
+                  skin_color: character.skin_color,
+                  eye_color: character.eye_color,
+                  birth_year: character.birth_year,
+                }
+              } }">
               <h4><a class="header">{{character.name}}</a></h4>
+            </router-link>
               <div class="description">
                 <p>Gender: {{character.gender}}</p>
                 <p>Birth Year: {{character.birth_year}}</p>
               </div>
             </div>
             <div class="uk-card-footer">
+
+            <router-link 
+              :to="{ name: 'character', 
+              params: { 
+                name: character.name, 
+                characterDetails: {
+                  name: character.name,
+                  mass: character.mass,
+                  gender: character.gender,
+                  hair_color: character.hair_color,
+                  skin_color: character.skin_color,
+                  eye_color: character.eye_color,
+                  birth_year: character.birth_year,
+                }
+              } }">
               <h6><a class="float-right">
                 READ MORE
               </a></h6>
+            </router-link>
+
             </div>
           </div>
         </div>
@@ -34,8 +67,8 @@
 
       </div>
     </div>
-  </div>
 
+  </div>
   
 </template>
 
@@ -119,14 +152,23 @@ export default {
       	this.currentPage = this.numOfPages;
       }
     	return this.characters.slice(this.offset, this.limit);
+    },
+
+    async maleCharacters() {
+      await this.fetchAllCharacters()
+      return this.characters.filter(character => character.gender === 'male');
     }
 
   },
 
+  async created() {
+    await this.maleCharacters
+    console.log('this is', this.maleCharacters)
+  },
+
   beforeMount() {
     this.fetchAllCharacters();
-  }
-
+  },
 
 }
 </script>
@@ -169,6 +211,13 @@ a {
     bottom: -12px;
 }
 
+
+.header {
+  font-size: 16pt;
+  font-weight: 700;
+  color: darkslateblue !important;
+}
+
 div .uk-card {
   margin-bottom: 2em !important;
 }
@@ -176,4 +225,5 @@ div .uk-card {
 .pagination-section {
   float: right;
 }
+
 </style>

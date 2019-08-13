@@ -1,16 +1,90 @@
 <template>
-  <div class="container popular-starships">
-    <h2 class="heading">Popular Characters</h2>
+  <div class="character">
+    <div class="head">
+        <div class="character-image-section">
+            <div class="character-image">
+                <img src="../../../assets/character-1.jpg" height="200" width="200" alt="character-image">
+            </div>
+        </div>
 
+        <div class="character-name">
+            <h2>{{this.$route.params.name}}</h2>
+        </div>
+    </div>
+    <div v-if="characterDetails">
+        <div class="container">
+            <div class="row details">
+                <div class="">
+                    <div class="ui list">
+                        <div class="item">
+                            <i class="user icon"></i>
+                            <div class="content">
+                            <a class="header">Name</a>
+                            <div class="description">{{characterDetails.name}}</div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <i class="user icon"></i>
+                            <div class="content">
+                            <a class="header">Gender</a>
+                            <div class="description">{{characterDetails.gender}}</div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <i class="user icon"></i>
+                            <div class="content">
+                            <a class="header">Mass</a>
+                            <div class="description">{{characterDetails.mass}}</div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <i class="user icon"></i>
+                            <div class="content">
+                            <a class="header">Height</a>
+                            <div class="description">{{characterDetails.height}}</div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <i class="user icon"></i>
+                            <div class="content">
+                            <a class="header">Hair Color </a>
+                            <div class="description">{{characterDetails.hair_color}}</div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <i class="user icon"></i>
+                            <div class="content">
+                            <a class="header">Skin Color</a>
+                            <div class="description">{{characterDetails.skin_color}}</div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <i class="user icon"></i>
+                            <div class="content">
+                            <a class="header">Birth Year </a>
+                            <div class="description">{{characterDetails.birth_year}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'Character',
+    name: 'Starship',
 
     props: {
-      
+      characterDetails: Object,
     },
 
     data() {
@@ -18,6 +92,9 @@
       }
     },
 
+    mounted() {
+        console.log('details', this.characterDetails)
+    }
 
   }
 </script>
@@ -25,23 +102,39 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .popular-starships {
-    margin-top: 2em;
-    padding: 10px;
   }
-.heading {
-  text-align: center;
-  position: relative;
-  margin-top: 1.5em;
-  margin-bottom: 2em;
+
+.head {
+    background: url('../../../assets/hero-banner.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 400px;
+    position: relative;
+    padding: 40px;
+    color: white !important;
 }
-.heading::after {
-  content: '';
-  height: 5px;
-  width: 10%;
-  background: #5b5150;
-  position: absolute;
-  left: calc(55% - 10%);
-  bottom: -12px;
+
+.character-image-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px;
+}
+
+.character-name h2 {
+    color: white !important;
+}
+
+.details {
+    /* text-align: center; */
+    margin-top: 2em;
+    padding: 1em;
+}
+
+.item {
+    mrgin-top: 1em;
+    margin-bottom: 1em;
 }
   h3 {
     margin: 40px 0 0;

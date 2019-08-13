@@ -1,5 +1,5 @@
 <template>
-  <div class="container popular-starships">
+  <div class="container popular-characters">
     <h2 class="heading">Popular Characters</h2>
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"  v-for="(character, index) in selectedCharacters" :key="index">
@@ -8,16 +8,46 @@
               <img src="../../../assets/character-3.jpg" alt="ship image">
           </div>
           <div class="uk-card-body">
-            <h4><a class="header">{{character.name}}</a></h4>
+            <router-link 
+              :to="{ name: 'character', 
+              params: { 
+                name: character.name, 
+                characterDetails: {
+                  name: character.name,
+                  mass: character.mass,
+                  gender: character.gender,
+                  hair_color: character.hair_color,
+                  skin_color: character.skin_color,
+                  eye_color: character.eye_color,
+                  birth_year: character.birth_year,
+                }
+              } }">
+              <h4><a class="header">{{character.name}}</a></h4>
+            </router-link>
             <div class="description">
               <p>Gender: {{character.gender}}</p>
               <p>Birth Year: {{character.birth_year}}</p>
             </div>
           </div>
           <div class="uk-card-footer">
-            <h6><a class="float-right">
-              READ MORE
-            </a></h6>
+            <router-link 
+              :to="{ name: 'character', 
+              params: { 
+                name: character.name, 
+                characterDetails: {
+                  name: character.name,
+                  mass: character.mass,
+                  gender: character.gender,
+                  hair_color: character.hair_color,
+                  skin_color: character.skin_color,
+                  eye_color: character.eye_color,
+                  birth_year: character.birth_year,
+                }
+              } }">
+              <h6><a class="float-right">
+                READ MORE
+              </a></h6>
+            </router-link>
           </div>
         </div>
       </div>
@@ -75,7 +105,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .popular-starships {
+  .popular-characters {
     margin-top: 2em;
     padding: 10px;
   }
@@ -93,6 +123,12 @@
   position: absolute;
   left: calc(55% - 10%);
   bottom: -12px;
+}
+
+.header {
+  font-size: 16pt;
+  font-weight: 700;
+  color: darkslateblue !important;
 }
   h3 {
     margin: 40px 0 0;
