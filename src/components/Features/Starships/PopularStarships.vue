@@ -8,16 +8,40 @@
               <img src="../../../assets/starship-1.jpg" alt="ship image">
           </div>
           <div class="uk-card-body">
-            <a class="header">{{ship.name}}</a>
+            <router-link 
+              :to="{ name: 'starship', 
+              params: { 
+                name: ship.name, 
+                starshipDetails: {
+                  name: ship.name,
+                  model: ship.model,
+                  manufacturer: ship.manufacturer,
+                  cost_in_credits: ship.cost_in_credits,
+                  length: ship.length,
+                  max_atmosphering_speed: ship.max_atmosphering_speed,
+                  crew: ship.crew,
+                  passengers: ship.passengers,
+                  cargo_capacity: ship.cargo_capacity,
+                  consumables: ship.consumables,
+                  hyperdrive_rating: ship.hyperdrive_rating,
+                  MGLT: ship.MGLT,
+                  starship_class: ship.starship_class
+                }
+              } }">
+              <h4><a class="header">{{ship.name}}</a></h4>
+            </router-link>
             <div class="description">
               <p>Model: {{ship.model}}</p>
               <p>Capacity: {{ship.cargo_capacity}}</p>
             </div>
           </div>
           <div class="uk-card-footer">
-            <a class="float-right">
-              READ MORE
-            </a>
+            <h6>
+              <a class="float-right">
+                READ MORE
+              </a>
+            </h6>
+
           </div>
         </div>
       </div>
@@ -58,6 +82,9 @@
         for (i = 0; i < pics.length; i++) {
           return './images/' + pics[i] + '.jpg';
         }
+      },
+      gotoStarship(shipName) {
+        this.$router.push({name:'starship', params: {name: shipName}})
       }
     },
 
@@ -94,6 +121,12 @@
   position: absolute;
   left: calc(55% - 10%);
   bottom: -12px;
+}
+
+.header {
+  font-size: 16pt;
+  font-weight: 700;
+  color: darkslateblue !important;
 }
   h3 {
     margin: 40px 0 0;

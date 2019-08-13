@@ -7,7 +7,7 @@
           <div class="uk-position-relative uk-visible-toggle uk-dark" tabindex="-1">
 
               <ul class="uk-slider-items uk-child-width-1-3@s">
-                  <li v-for="planet in planets" :key="planet.name">
+                  <li v-for="planet in threePopularPlanets" :key="planet.name">
                       <img src="../../../assets/planet-1.jpg" alt="">
                       <div class="uk-overlay uk-overlay-primary uk-position-bottom">
                         <h5 class="text-center">{{planet.name}}</h5>
@@ -39,6 +39,12 @@ export default {
 
   props: {
     planets: Array,
+  },
+
+  computed: {
+    threePopularPlanets() {
+      return this.planets.slice(0, 4);
+    }
   },
 
 }
