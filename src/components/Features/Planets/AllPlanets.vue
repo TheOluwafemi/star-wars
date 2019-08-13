@@ -43,7 +43,7 @@
 import Header from '../../core/Header'
 
 export default {
-  name: 'AllStarships',
+  name: 'AllPlanets',
 
   components: {
     Header
