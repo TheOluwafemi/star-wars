@@ -10,16 +10,49 @@
               <img src="../../../assets/planet-1.jpg" alt="ship image">
             </div>
             <div class="uk-card-body">
-              <h4><a class="header">{{planet.name}}</a></h4>
+              <router-link 
+                :to="{ name: 'planet', 
+                params: { 
+                  name: planet.name, 
+                  planetDetails: {
+                    name: planet.name,
+                    rotation_period: planet.rotation_period,
+                    climate: planet.climate,
+                    orbital_period: planet.orbital_period,
+                    gravity: planet.gravity,
+                    terrain: planet.terrain,
+                    surface_water: planet.surface_water,
+                    population: planet.population
+                  }
+                } }">
+                <h5><a class="header">{{planet.name}}</a></h5>
+              </router-link>  
               <div class="description">
                 <p>Climate: {{planet.climate}}</p>
                 <p>Population: {{planet.population}}</p>
               </div>
             </div>
             <div class="uk-card-footer">
-              <h6><a class="float-right">
-                READ MORE
-              </a></h6>
+              <router-link 
+                :to="{ name: 'planet', 
+                params: { 
+                  name: planet.name, 
+                  planetDetails: {
+                    name: planet.name,
+                    rotation_period: planet.rotation_period,
+                    climate: planet.climate,
+                    orbital_period: planet.orbital_period,
+                    gravity: planet.gravity,
+                    terrain: planet.terrain,
+                    surface_water: planet.surface_water,
+                    population: planet.population
+                  }
+                } }">
+                <h6><a class="float-right">
+                  READ MORE
+                </a></h6>
+              </router-link>  
+
             </div>
           </div>
         </div>
@@ -167,6 +200,12 @@ a {
     position: absolute;
     left: calc(57% - 10%);
     bottom: -12px;
+}
+
+.header {
+  font-size: 16pt;
+  font-weight: 700;
+  color: darkslateblue !important;
 }
 
 div .uk-card {

@@ -10,7 +10,23 @@
                   <li v-for="planet in threePopularPlanets" :key="planet.name">
                       <img src="../../../assets/planet-1.jpg" alt="">
                       <div class="uk-overlay uk-overlay-primary uk-position-bottom">
-                        <h5 class="text-center">{{planet.name}}</h5>
+                      <router-link 
+                        :to="{ name: 'planet', 
+                        params: { 
+                          name: planet.name, 
+                          planetDetails: {
+                            name: planet.name,
+                            rotation_period: planet.rotation_period,
+                            climate: planet.climate,
+                            orbital_period: planet.orbital_period,
+                            gravity: planet.gravity,
+                            terrain: planet.terrain,
+                            surface_water: planet.surface_water,
+                            population: planet.population
+                          }
+                        } }">
+                        <h5><a class="header text-center">{{planet.name}}</a></h5>
+                      </router-link>                        
                       </div>
                   </li>
               </ul>

@@ -4,22 +4,64 @@
     <div class="container all-starships">
       <h2 class="heading">Popular Starships</h2>
       <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"  v-for="ship in computedUsers" :key="ship.name">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"  v-for="ship in availableShips" :key="ship.name">
           <div class="uk-card uk-card-default">
             <div class="uk-card-media-top">
               <img src="../../../assets/starship-1.jpg" alt="ship image">
             </div>
             <div class="uk-card-body">
+            <router-link 
+              :to="{ name: 'starship', 
+              params: { 
+                name: ship.name, 
+                starshipDetails: {
+                  name: ship.name,
+                  model: ship.model,
+                  manufacturer: ship.manufacturer,
+                  cost_in_credits: ship.cost_in_credits,
+                  length: ship.length,
+                  max_atmosphering_speed: ship.max_atmosphering_speed,
+                  crew: ship.crew,
+                  passengers: ship.passengers,
+                  cargo_capacity: ship.cargo_capacity,
+                  consumables: ship.consumables,
+                  hyperdrive_rating: ship.hyperdrive_rating,
+                  MGLT: ship.MGLT,
+                  starship_class: ship.starship_class
+                }
+              } }">
               <h4><a class="header">{{ship.name}}</a></h4>
+            </router-link>
               <div class="description">
                 <p>Model: {{ship.model}}</p>
                 <p>Capacity: {{ship.cargo_capacity}}</p>
               </div>
             </div>
             <div class="uk-card-footer">
+            <router-link 
+              :to="{ name: 'starship', 
+              params: { 
+                name: ship.name, 
+                starshipDetails: {
+                  name: ship.name,
+                  model: ship.model,
+                  manufacturer: ship.manufacturer,
+                  cost_in_credits: ship.cost_in_credits,
+                  length: ship.length,
+                  max_atmosphering_speed: ship.max_atmosphering_speed,
+                  crew: ship.crew,
+                  passengers: ship.passengers,
+                  cargo_capacity: ship.cargo_capacity,
+                  consumables: ship.consumables,
+                  hyperdrive_rating: ship.hyperdrive_rating,
+                  MGLT: ship.MGLT,
+                  starship_class: ship.starship_class
+                }
+              } }">
               <h6><a class="float-right">
                 READ MORE
-              </a></h6>
+              </a></h6>              
+            </router-link>
             </div>
           </div>
         </div>
@@ -114,7 +156,7 @@ export default {
     	return Math.ceil(this.starships.length / this.perPage);
     },
 
-    computedUsers() {
+    availableShips() {
       if (this.offset > this.starships.length) {
       	this.currentPage = this.numOfPages;
       }
@@ -167,6 +209,12 @@ a {
   position: absolute;
   left: calc(55% - 10%);
   bottom: -12px;
+}
+
+.header {
+  font-size: 16pt;
+  font-weight: 700;
+  color: darkslateblue !important;
 }
 
 div .uk-card {
