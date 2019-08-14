@@ -101,7 +101,7 @@ export default {
       currentPage: 1,
       perPage: 6,
       perPageOptions: [6,9],
-      loading
+      loading: false
     }
   },  
 
