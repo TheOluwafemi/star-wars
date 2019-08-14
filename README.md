@@ -1,5 +1,10 @@
 # star-wars
 
+# demo
+```
+demo can be found at https://star-wars-oluwafemi.netlify.com/
+```
+
 ## Project setup
 ```
 npm install
