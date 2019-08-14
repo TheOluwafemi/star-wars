@@ -314,7 +314,6 @@ export default {
     },
 
     searchWebpage(search) {
-      console.log('search', search);
       this.characters = this.characters.filter(characters => characters.name.toLowerCase().includes(search.toLowerCase()))
     },
 

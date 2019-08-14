@@ -102,10 +102,6 @@
       }
     },
 
-    mounted() {
-        console.log('details', this.planetDetails)
-    }
-
   }
 </script>
 

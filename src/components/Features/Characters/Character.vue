@@ -92,10 +92,6 @@
       }
     },
 
-    mounted() {
-        console.log('details', this.characterDetails)
-    }
-
   }
 </script>
 

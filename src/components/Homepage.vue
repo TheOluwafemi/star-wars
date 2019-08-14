@@ -67,7 +67,6 @@ export default {
         result = data['results']
         this.starships = result
         this.tempStarships = result;
-        console.log(result)
       } catch (error) {
         console.error(error)
       }
@@ -81,7 +80,6 @@ export default {
         result = data['results']
         this.characters = result
         this.tempCharacters = result
-        console.log(result)
       } catch (error) {
         console.error(error)
       }
@@ -95,7 +93,6 @@ export default {
         result = data['results']
         this.planets = result
         this.tempPlanets = result
-        console.log(result)
       } catch (error) {
         console.error(error)
       }

@@ -125,7 +125,6 @@ export default {
     },
 
     searchWebpage(search) {
-      console.log('search', search);
       this.starships = this.starships.filter(ship => ship.name.toLowerCase().includes(search.toLowerCase()))
     },
 
