@@ -4,6 +4,11 @@
     <Loader v-if="loading" />
 
     <div class="container all-starships" v-if="!loading">
+
+      <ul class="uk-breadcrumb m-3">
+        <li><router-link to="/">Home /</router-link></li>
+      </ul>
+      
       <h2 class="heading">All Starships</h2>
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"  v-for="ship in availableShips" :key="ship.name">
