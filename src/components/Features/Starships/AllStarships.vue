@@ -2,7 +2,7 @@
   <div>
     <Header @search:webpage="searchWebpage" />
     <div class="container all-starships">
-      <h2 class="heading">Popular Starships</h2>
+      <h2 class="heading">All Starships</h2>
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"  v-for="ship in availableShips" :key="ship.name">
           <div class="uk-card uk-card-default uk-animation-slide-bottom-small">
