@@ -15,7 +15,7 @@
       <h2 class="heading">All Characters</h2>
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"  v-for="(character, index) in displayedCharacters" :key="index">
-          <div class="uk-card uk-card-default">
+          <div class="uk-card uk-card-default uk-animation-slide-bottom-small">
             <div class="uk-card-media-top">
               <img src="../../../assets/character-3.jpg" alt="ship image">
             </div>
@@ -81,7 +81,7 @@
       <h2 class="heading">Male Characters</h2>
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"  v-for="(character, index) in maleCharacters" :key="index">
-          <div class="uk-card uk-card-default">
+          <div class="uk-card uk-card-default uk-animation-slide-bottom-small">
             <div class="uk-card-media-top">
               <img src="../../../assets/character-3.jpg" alt="ship image">
             </div>
@@ -138,7 +138,7 @@
       <h2 class="heading">Female Characters</h2>
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"  v-for="(character, index) in femaleCharacters" :key="index">
-          <div class="uk-card uk-card-default">
+          <div class="uk-card uk-card-default uk-animation-slide-bottom-small">
             <div class="uk-card-media-top">
               <img src="../../../assets/character-3.jpg" alt="ship image">
             </div>
@@ -196,7 +196,7 @@
       <h2 class="heading">Robot Characters</h2>
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"  v-for="(character, index) in robotCharacters" :key="index">
-          <div class="uk-card uk-card-default">
+          <div class="uk-card uk-card-default uk-animation-slide-bottom-small">
             <div class="uk-card-media-top">
               <img src="../../../assets/character-3.jpg" alt="ship image">
             </div>

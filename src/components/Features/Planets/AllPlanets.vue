@@ -5,7 +5,7 @@
       <h2 class="heading">All Planets</h2>
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"  v-for="(planet, index) in displayedPlanets" :key="index">
-          <div class="uk-card uk-card-default">
+          <div class="uk-card uk-card-default uk-animation-slide-bottom-small">
             <div class="uk-card-media-top">
               <img src="../../../assets/planet-1.jpg" alt="ship image">
             </div>
