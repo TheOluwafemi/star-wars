@@ -1,14 +1,17 @@
 <template>
   <div class="header">
       <div class='logo-area'>
-          <img src="../../assets/logo.png" alt="star wars logo">
+        <router-link to="/Homepage">
+        <img src="../../assets/logo.png" alt="star wars logo">
+        </router-link>
+          
       </div>
 
       <div class="header-center">
         <div class="sub-heading">
             <div class="sub-heading-content">
-                <img src="../../assets/logo.png" height="35" width="70" alt="star wars logo">
-                <span><h2>Directory</h2></span>
+                <img src="../../assets/logo.png" height="40" width="70" alt="star wars logo">
+                <span><h3>Directory</h3></span>
             </div>
             <div class="sub-heading-desc">
                 <p>Find your favorite Characters, Films, Species, Starships and Planets</p>
@@ -61,8 +64,8 @@ export default {
     }
 
     .logo-area img {
-        height: 50px;
-        width: 100px;
+        height: 35px;
+        width: 80px;
     }
 
     .header-center {
@@ -71,10 +74,20 @@ export default {
 
     .sub-heading-content {
         text-align: center;
-        border-bottom: 2px solid white;
+        /* border-bottom: 2px solid white; */
         max-width: 250px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .sub-heading-content::after {
+        content: '';
+        height: 5px;
+        width: 100%;
+        background: white;
+        position: absolute;
+        left: calc(55% - 10%);
+        bottom: -12px;
     }
 
 
@@ -84,11 +97,13 @@ export default {
         vertical-align: middle;
     }
 
-    .sub-heading span {
+    .sub-heading span h3 {
         /* float: right; */
         display: inline-block;
         vertical-align: middle;
         margin-left: 1em;
+        color: white;
+        /* font-display: Poppins, Sans-serif; */
     }
 
 </style>
