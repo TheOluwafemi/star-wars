@@ -11,6 +11,13 @@
             <h2>{{this.$route.params.name}}</h2>
         </div>
     </div>
+
+    <ul class="uk-breadcrumb m-3">
+      <li><router-link to="/Homepage">Home</router-link></li>
+      <li><router-link to="/all-planets">all planets</router-link></li>
+      <li class="uk-disabled">planet details</li>
+    </ul>
+    
     <div v-if="planetDetails">
         <div class="container">
             <div class="row details">

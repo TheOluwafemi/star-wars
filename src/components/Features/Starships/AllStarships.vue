@@ -1,7 +1,9 @@
 <template>
   <div>
     <Header @search:webpage="searchWebpage" />
-    <div class="container all-starships">
+    <Loader v-if="loading" />
+
+    <div class="container all-starships" v-if="!loading">
       <h2 class="heading">All Starships</h2>
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"  v-for="ship in availableShips" :key="ship.name">
@@ -69,7 +71,7 @@
 
       <div class="pagination-section">
         <ul class="uk-pagination uk-flex-right uk-text-bold">
-          <li v-for="n in numOfPages">
+          <li v-for="(n, index) in numOfPages" :key="index">
             <a href="" @click.prevent="setPage(n)">{{n}}</a>
           </li>
         </ul>
@@ -83,12 +85,14 @@
 
 <script>
 import Header from '../../core/Header'
+import Loader from '../../shared/Loader'
 
 export default {
   name: 'AllStarships',
 
   components: {
-    Header
+    Header,
+    Loader
   },
 
   data() {
@@ -98,6 +102,7 @@ export default {
       currentPage: 1,
       perPage: 6,
       perPageOptions: [6,9],
+      loading: false
     }
   },  
 
@@ -107,6 +112,7 @@ export default {
       try {
         let morePagesAvailable = true;
         let currentPage = 0;
+        this.loading = true;
 
         while(morePagesAvailable) {
           currentPage++;
@@ -115,6 +121,7 @@ export default {
           results.forEach(e => this.starships.unshift(e));
           morePagesAvailable = currentPage < 4;
         }
+        this.loading = false;
         return this.starships;
       } catch (error) {
           console.error(error)
