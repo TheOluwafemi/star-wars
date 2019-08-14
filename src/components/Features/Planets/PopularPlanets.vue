@@ -59,7 +59,7 @@ export default {
 
   computed: {
     threePopularPlanets() {
-      return this.planets.slice(0, 4);
+      return this.planets.slice(0, 6);
     }
   },
 

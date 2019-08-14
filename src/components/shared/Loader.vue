@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="loading-component">
         <div class="loader">
             <svg viewBox="0 0 80 80">
                 <circle id="test" cx="40" cy="40" r="32"></circle>
@@ -30,6 +30,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.loading-component {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+}
+
 .loader {
   --path: #2F3545;
   --dot: #5628EE;

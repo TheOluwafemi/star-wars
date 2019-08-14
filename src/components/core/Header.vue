@@ -14,7 +14,7 @@
                 <span><h3>Directory</h3></span>
             </div>
             <div class="sub-heading-desc">
-                <p>Find your favorite Characters, Films, Species, Starships and Planets</p>
+                <p class="text-white">Find your favorite Characters, Films, Species, Starships and Planets</p>
             </div>
             <div class="search">
                 <div class="ui left icon input">

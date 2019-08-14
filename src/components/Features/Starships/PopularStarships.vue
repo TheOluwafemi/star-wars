@@ -36,11 +36,32 @@
             </div>
           </div>
           <div class="uk-card-footer">
-            <h6>
-              <a class="float-right">
-                READ MORE
-              </a>
-            </h6>
+            <router-link 
+              :to="{ name: 'starship', 
+              params: { 
+                name: ship.name, 
+                starshipDetails: {
+                  name: ship.name,
+                  model: ship.model,
+                  manufacturer: ship.manufacturer,
+                  cost_in_credits: ship.cost_in_credits,
+                  length: ship.length,
+                  max_atmosphering_speed: ship.max_atmosphering_speed,
+                  crew: ship.crew,
+                  passengers: ship.passengers,
+                  cargo_capacity: ship.cargo_capacity,
+                  consumables: ship.consumables,
+                  hyperdrive_rating: ship.hyperdrive_rating,
+                  MGLT: ship.MGLT,
+                  starship_class: ship.starship_class
+                }
+              } }">
+              <h6>
+                <a class="float-right">
+                  READ MORE
+                </a>
+              </h6>
+            </router-link>
 
           </div>
         </div>
