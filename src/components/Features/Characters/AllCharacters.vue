@@ -2,6 +2,15 @@
   <div>
     <Header @search:webpage="searchWebpage" />
 
+    <div class="m-3">
+      <div class="ui buttons">
+        <button class="ui button" @click="showAll()">All</button>
+        <button class="ui button" @click="showMale()">Male</button>
+        <button class="ui button" @click="showFemale()">Female</button>
+        <button class="ui button" @click="showRobots()">Robots</button>
+      </div>
+    </div>
+
     <div class="container all-starships" v-if="showAllCharacters">
       <h2 class="heading">All Characters</h2>
       <div class="row">
@@ -68,10 +77,8 @@
       </div>
     </div>
 
-
-
-    <!-- <div class="container all-starships" v-if="showMaleCharacters">
-      <h2 class="heading">All Characters</h2>
+    <div class="container all-starships" v-if="showMaleCharacters">
+      <h2 class="heading">Male Characters</h2>
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"  v-for="(character, index) in maleCharacters" :key="index">
           <div class="uk-card uk-card-default">
@@ -125,19 +132,10 @@
           </div>
         </div>
       </div>
-
-      <div class="pagination-section">
-        <ul class="uk-pagination uk-flex-right uk-text-bold">
-          <li v-for="(n, index) in numOfPages" :key="index">
-            <a href="" @click.prevent="setPage(n)">{{n}}</a>
-          </li>
-        </ul>
-
-      </div>
     </div>
 
     <div class="container all-starships" v-if="showFemaleCharacters">
-      <h2 class="heading">All Characters</h2>
+      <h2 class="heading">Female Characters</h2>
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"  v-for="(character, index) in femaleCharacters" :key="index">
           <div class="uk-card uk-card-default">
@@ -192,15 +190,66 @@
         </div>
       </div>
 
-      <div class="pagination-section">
-        <ul class="uk-pagination uk-flex-right uk-text-bold">
-          <li v-for="(n, index) in numOfPages" :key="index">
-            <a href="" @click.prevent="setPage(n)">{{n}}</a>
-          </li>
-        </ul>
+    </div>
+
+    <div class="container all-starships" v-if="showRobotCharacters">
+      <h2 class="heading">Robot Characters</h2>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"  v-for="(character, index) in robotCharacters" :key="index">
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-media-top">
+              <img src="../../../assets/character-3.jpg" alt="ship image">
+            </div>
+            <div class="uk-card-body">
+            <router-link 
+              :to="{ name: 'character', 
+              params: { 
+                name: character.name, 
+                characterDetails: {
+                  name: character.name,
+                  mass: character.mass,
+                  gender: character.gender,
+                  hair_color: character.hair_color,
+                  skin_color: character.skin_color,
+                  eye_color: character.eye_color,
+                  birth_year: character.birth_year,
+                }
+              } }">
+              <h4><a class="header">{{character.name}}</a></h4>
+            </router-link>
+              <div class="description">
+                <p>Gender: {{character.gender}}</p>
+                <p>Birth Year: {{character.birth_year}}</p>
+              </div>
+            </div>
+            <div class="uk-card-footer">
+
+            <router-link 
+              :to="{ name: 'character', 
+              params: { 
+                name: character.name, 
+                characterDetails: {
+                  name: character.name,
+                  mass: character.mass,
+                  gender: character.gender,
+                  hair_color: character.hair_color,
+                  skin_color: character.skin_color,
+                  eye_color: character.eye_color,
+                  birth_year: character.birth_year,
+                }
+              } }">
+              <h6><a class="float-right">
+                READ MORE
+              </a></h6>
+            </router-link>
+
+            </div>
+          </div>
+        </div>
+      </div>
 
       </div>
-    </div> -->
+    </div>
 
 
 
@@ -222,9 +271,9 @@ export default {
     return {
       characters: [],
       showAllCharacters: true,
-      showMaleCharacters: true,
-      showFemaleCharacters: true,
-      showRobotCharacters: true,
+      showMaleCharacters: false,
+      showFemaleCharacters: false,
+      showRobotCharacters: false,
       pageNumber: 0,
       currentPage: 1,
       perPage: 9,
@@ -394,6 +443,16 @@ div .uk-card {
 
 .pagination-section {
   float: right;
+}
+
+.ui.button:active {
+  background: darkslateblue !important;
+  color: white !important;
+}
+
+.ui.button.active {
+  background: darkslateblue !important;
+  color: white !important;
 }
 
 </style>

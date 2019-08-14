@@ -33,7 +33,7 @@ export default {
 .loading-component {
     position: absolute;
     top: 50%;
-    left: 40%;
+    left: 45%;
 }
 
 .loader {
